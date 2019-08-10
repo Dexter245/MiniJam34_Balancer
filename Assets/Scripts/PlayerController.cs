@@ -4,31 +4,66 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public bool active = false;
     public float torque = 50f;
+    public Rigidbody nextRigidbody;
 
-    public HingeJoint arm;
     private Rigidbody rb;
-    private Rigidbody armRb;
+    private Material material;
+    private bool activate = false;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        armRb = arm.GetComponent<Rigidbody>();
+        material = GetComponent<Renderer>().material;
+        //change alpha if set as active in editor
+        if (active)
+            Activate();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButton("Left"))
+        if (active)
         {
-            Debug.Log("Left");
-            armRb.AddTorque(Vector3.forward * torque * Time.deltaTime);
+            bool left = Input.GetButton("Left");
+            bool right = Input.GetButton("Right");
+            if ((Input.GetButtonDown("Left") && right) || (left && Input.GetButtonDown("Right")) )
+            {
+                Debug.Log("switch");
+                Deactivate();
+                nextRigidbody.GetComponent<PlayerController>().Activate();
+            }
+            else if (left)
+            {
+                rb.AddTorque(Vector3.forward * torque * Time.deltaTime);
+            }
+            else if (right)
+            {
+                rb.AddTorque(Vector3.forward * -torque * Time.deltaTime);
+            }
         }
-        if (Input.GetButton("Right"))
+        if (activate)
         {
-            Debug.Log("Right");
-            armRb.AddTorque(Vector3.forward * -torque * Time.deltaTime);
+            activate = false;
+            active = true;
         }
+    }
+
+    void Activate()
+    {
+        activate = true;
+        Color color = material.color;
+        color.a = 1f;
+        material.color = color;
+    }
+
+    void Deactivate()
+    {
+        active = false;
+        Color color = material.color;
+        color.a = 0.5f;
+        material.color = color;
     }
 }
