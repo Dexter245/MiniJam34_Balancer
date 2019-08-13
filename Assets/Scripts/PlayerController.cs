@@ -29,17 +29,18 @@ public class PlayerController : MonoBehaviour
         {
             bool left = Input.GetButton("Left");
             bool right = Input.GetButton("Right");
-            if ((Input.GetButtonDown("Left") && right) || (left && Input.GetButtonDown("Right")) )
+            bool sw = Input.GetButtonDown("Switch");
+            if (sw)
             {
                 Debug.Log("switch");
                 Deactivate();
                 nextRigidbody.GetComponent<PlayerController>().Activate();
             }
-            else if (left)
+            if (left)
             {
                 rb.AddTorque(Vector3.forward * torque * Time.deltaTime);
             }
-            else if (right)
+            if (right)
             {
                 rb.AddTorque(Vector3.forward * -torque * Time.deltaTime);
             }
