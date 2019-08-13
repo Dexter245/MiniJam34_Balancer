@@ -48,6 +48,7 @@ public class OnGameStateActivator : MonoBehaviour
 
     private void AddListsForAllGameStates(Dictionary<GameState, List<GameObject>> dict)
     {
+        dict.Add(GameState.NONE, new List<GameObject>());
         dict.Add(GameState.INIT, new List<GameObject>());
         dict.Add(GameState.RUNNING, new List<GameObject>());
         dict.Add(GameState.WON, new List<GameObject>());
