@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour
             bool left = Input.GetButton("Left");
             bool right = Input.GetButton("Right");
             bool sw = Input.GetButtonDown("Switch");
-            bool any = left | right | sw;
+            bool anyButton = left | right | sw;
 
             if(Globals.gameState == GameState.RUNNING)
             {
@@ -51,7 +51,7 @@ public class PlayerController : MonoBehaviour
             }
             else if(Globals.gameState == GameState.INIT)
             {
-                if (any)
+                if (anyButton)
                 {
                     StartGame();
                 }
