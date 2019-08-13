@@ -17,13 +17,11 @@ public class WallBottomTrigger : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("1");
         if (other.gameObject.CompareTag("ObjectForGoal"))
         {
             if(Globals.gameState == GameState.RUNNING)
             {
                 Globals.gameState = GameState.LOST;
-                Debug.Log("2");
             }
         }
     }
