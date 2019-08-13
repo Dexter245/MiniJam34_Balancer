@@ -19,13 +19,18 @@ public class UIEventListener : MonoBehaviour
 
     public void OnNextLevelButtonClick()
     {
-        Debug.Log("next level click");
+        //Scene activeScene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene("Level2", LoadSceneMode.Single);
+        //Globals.gameState = GameState.INIT;
+        //SceneManager.UnloadSceneAsync(activeScene);
     }
 
     public void OnRetryButtonClick()
     {
-        Globals.gameState = GameState.INIT;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex, LoadSceneMode.Single);
+        //Scene activeScene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
+        //SceneManager.UnloadSceneAsync(activeScene);
+        //Globals.gameState = GameState.INIT;
     }
 
 }

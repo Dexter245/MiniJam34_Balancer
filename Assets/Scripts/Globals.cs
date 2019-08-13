@@ -11,8 +11,19 @@ public enum GameState
     NONE
 }
 
-public static class Globals
+public class Globals : MonoBehaviour
 {
+    public static GameState gameState;
 
-    public static GameState gameState = GameState.INIT;
+    void Start()
+    {
+        gameState = GameState.INIT;
+    }
+
+    private void Update()
+    {
+        
+    }
+
+
 }
