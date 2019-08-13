@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DisableAfterGameRuns : MonoBehaviour
+public class ActivateOnGameState : MonoBehaviour
 {
+    public GameState gameState = GameState.NONE;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -13,10 +15,6 @@ public class DisableAfterGameRuns : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Globals.gameState == GameState.RUNNING)
-        {
-            gameObject.SetActive(false);
-            enabled = false;
-        }
+
     }
 }

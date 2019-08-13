@@ -7,7 +7,8 @@ public enum GameState
     INIT,
     RUNNING,
     WON,
-    LOST
+    LOST,
+    NONE
 }
 
 public static class Globals
