@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GoalTrigger : MonoBehaviour
+public class WallBottomTrigger : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -15,14 +15,15 @@ public class GoalTrigger : MonoBehaviour
     {
         
     }
-
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("1");
         if (other.gameObject.CompareTag("ObjectForGoal"))
         {
             if(Globals.gameState == GameState.RUNNING)
             {
-                Globals.gameState = GameState.WON;
+                Globals.gameState = GameState.LOST;
+                Debug.Log("2");
             }
         }
     }

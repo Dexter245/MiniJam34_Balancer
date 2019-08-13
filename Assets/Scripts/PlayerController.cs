@@ -36,7 +36,6 @@ public class PlayerController : MonoBehaviour
             {
                 if (sw)
                 {
-                    Debug.Log("switch");
                     Deactivate();
                     nextRigidbody.GetComponent<PlayerController>().Activate();
                 }
