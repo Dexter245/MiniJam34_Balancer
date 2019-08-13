@@ -17,6 +17,7 @@ public class Globals : MonoBehaviour
 
     void Start()
     {
+        Debug.Log("new start");
         gameState = GameState.INIT;
     }
 
