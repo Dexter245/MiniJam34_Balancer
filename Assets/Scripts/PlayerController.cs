@@ -30,19 +30,31 @@ public class PlayerController : MonoBehaviour
             bool left = Input.GetButton("Left");
             bool right = Input.GetButton("Right");
             bool sw = Input.GetButtonDown("Switch");
-            if (sw)
+            bool any = left | right | sw;
+
+            if(Globals.gameRunning)
             {
-                Debug.Log("switch");
-                Deactivate();
-                nextRigidbody.GetComponent<PlayerController>().Activate();
+                if (sw)
+                {
+                    Debug.Log("switch");
+                    Deactivate();
+                    nextRigidbody.GetComponent<PlayerController>().Activate();
+                }
+                if (left)
+                {
+                    rb.AddTorque(Vector3.forward * torque * Time.deltaTime);
+                }
+                if (right)
+                {
+                    rb.AddTorque(Vector3.forward * -torque * Time.deltaTime);
+                }
             }
-            if (left)
+            else//!Globals.gameRunning
             {
-                rb.AddTorque(Vector3.forward * torque * Time.deltaTime);
-            }
-            if (right)
-            {
-                rb.AddTorque(Vector3.forward * -torque * Time.deltaTime);
+                if (any)
+                {
+                    StartGame();
+                }
             }
         }
         if (activate)
@@ -50,6 +62,12 @@ public class PlayerController : MonoBehaviour
             activate = false;
             active = true;
         }
+    }
+
+    void StartGame()
+    {
+        Globals.gameRunning = true;
+        GameObject.FindGameObjectWithTag("ObjectForGoal").GetComponent<Rigidbody>().isKinematic = false;
     }
 
     void Activate()
