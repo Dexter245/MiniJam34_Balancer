@@ -32,7 +32,7 @@ public class PlayerController : MonoBehaviour
             bool sw = Input.GetButtonDown("Switch");
             bool any = left | right | sw;
 
-            if(Globals.gameRunning)
+            if(Globals.gameState == GameState.RUNNING)
             {
                 if (sw)
                 {
@@ -49,7 +49,7 @@ public class PlayerController : MonoBehaviour
                     rb.AddTorque(Vector3.forward * -torque * Time.deltaTime);
                 }
             }
-            else//!Globals.gameRunning
+            else if(Globals.gameState == GameState.INIT)
             {
                 if (any)
                 {
@@ -66,7 +66,7 @@ public class PlayerController : MonoBehaviour
 
     void StartGame()
     {
-        Globals.gameRunning = true;
+        Globals.gameState= GameState.RUNNING;
         GameObject.FindGameObjectWithTag("ObjectForGoal").GetComponent<Rigidbody>().isKinematic = false;
     }
 

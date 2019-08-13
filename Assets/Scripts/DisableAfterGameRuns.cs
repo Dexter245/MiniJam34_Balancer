@@ -13,7 +13,7 @@ public class DisableAfterGameRuns : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Globals.gameRunning)
+        if (Globals.gameState == GameState.RUNNING)
         {
             gameObject.SetActive(false);
             enabled = false;
