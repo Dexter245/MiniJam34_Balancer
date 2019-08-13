@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UIEventListener : MonoBehaviour
 {
@@ -23,7 +24,8 @@ public class UIEventListener : MonoBehaviour
 
     public void OnRetryButtonClick()
     {
-        Debug.Log("retry click");
+        Globals.gameState = GameState.INIT;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex, LoadSceneMode.Single);
     }
 
 }
