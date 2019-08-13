@@ -18,7 +18,7 @@ public class GoalTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Box"))
+        if (other.gameObject.CompareTag("ObjectForGoal"))
         {
             Debug.Log("goal reached!");
         }
