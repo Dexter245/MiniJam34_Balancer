@@ -1,0 +1,8 @@
+must:
+	at least 3 level
+optional:
+	main menu with level select
+	android support
+		onscreen buttons
+	test vr
+	post processing/shader/lighting
