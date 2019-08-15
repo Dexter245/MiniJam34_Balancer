@@ -1924,10 +1924,10 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 2
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 400, y: 400}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -3581,6 +3581,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213334755884044328, guid: 4d7ac84a45b47f340b71dad1cf306273,
+        type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213334755884044328, guid: 4d7ac84a45b47f340b71dad1cf306273,
+        type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213334755884044328, guid: 4d7ac84a45b47f340b71dad1cf306273,
+        type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 400
       objectReference: {fileID: 0}
     - target: {fileID: 6673665497790934786, guid: 4d7ac84a45b47f340b71dad1cf306273,
         type: 3}
