@@ -19,12 +19,17 @@ public class UIEventListener : MonoBehaviour
 
     public void OnNextLevelButtonClick()
     {
-        SceneManager.LoadScene("Level2", LoadSceneMode.Single);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1, LoadSceneMode.Single);
     }
 
     public void OnRetryButtonClick()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex, LoadSceneMode.Single);
+    }
+
+    public void OnExitButtonClick()
+    {
+        Application.Quit(0);
     }
 
 }

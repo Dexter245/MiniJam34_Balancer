@@ -1,5 +1,5 @@
 must:
-	at least 3 level
+	fix ui scaling with fullscreen/high resolution
 optional:
 	main menu with level select
 	android support
